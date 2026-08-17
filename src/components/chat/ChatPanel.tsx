@@ -136,11 +136,19 @@ export function ChatPanel() {
                   <Message from={message.role} className="max-w-[80%] flex-initial">
                     <div>
                       <MessageContent
+                        style={
+                          isUser
+                            ? {
+                                background: "var(--bubble-user)",
+                                color: "var(--bubble-user-foreground)",
+                              }
+                            : {
+                                background: "var(--bubble-bot)",
+                                color: "var(--bubble-bot-foreground)",
+                              }
+                        }
                         className={cn(
                           "rounded-2xl px-4 py-3 text-[15px] leading-relaxed",
-                          isUser
-                            ? "bg-bubble-user text-bubble-user-foreground"
-                            : "bg-bubble-bot text-bubble-bot-foreground",
                         )}
                       >
                         <MessageResponse>{text}</MessageResponse>
